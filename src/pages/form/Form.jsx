@@ -1,73 +1,45 @@
 import {
   Button,
+  DataDisplay,
   Divider,
   FormGroup,
   FormWrapper,
   Heading,
   Input,
+  JsonData,
   Label,
   Span,
   Wrapper,
 } from "../../styles/form.styled";
 
-const Form = ({
-  firstName,
-  lastName,
-  date,
-  pinCode,
-  email,
-  phone,
-  file,
-  setFirstName,
-  setLastName,
-  setDate,
-  setPinCode,
-  setEmail,
-  setPhone,
-  setFile,
-  handleSubmit,
- }) => {
+const Form = ({ formData, setFormData }) => {
+  const { firstName, lastName, date, pinCode, email, phone, file } = formData;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
+  console.log(formData);
   return (
     <>
-      <div
-        style={{
-          textAlign: "center",
-          backgroundColor: "lime",
-          display: "inline-block",
-          padding: "10px",
-          borderRadius: "5px",
-          margin: "10px",
-          position: "fixed",
-        }}
-      >
+      <DataDisplay>
         <h4>Form Data from state</h4>
-        <pre
-          style={{
-            color: "blue",
-            textAlign: "left",
-            fontSize: "1rem",
-          }}
-        >
+        <JsonData>
           {JSON.stringify(
             {
-              firstName,
-              lastName,
-              date,
-              pinCode,
-              email,
-              phone,
-              file,
+              formData,
             },
             null,
             2
           )}
-        </pre>
-      </div>
+        </JsonData>
+      </DataDisplay>
       <Wrapper>
         <Heading>COVID-19 Vaccination Card Upload Form</Heading>
         <Divider />
 
-         <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <FormWrapper>
             <FormGroup>
               <Label htmlFor="first-name">Name</Label>
@@ -77,15 +49,12 @@ const Form = ({
                 name="first-name"
                 placeholder="First name"
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-
-                onInvalid={(e)=>{
+                onChange={(e) =>
+                  setFormData({ ...formData, firstName: e.target.value })
+                }
+                onInvalid={(e) => {
                   e.target.setCustomValidity("Please enter a valid name");
-                
                 }}
-                
-              
-              
               />
               <Span>First Name</Span>
             </FormGroup>
@@ -95,7 +64,9 @@ const Form = ({
                 name="last-name"
                 placeholder="Last name"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, lastName: e.target.value })
+                }
               />
               <Span>Last Name</Span>
             </FormGroup>
@@ -108,7 +79,9 @@ const Form = ({
                 id="date"
                 name="date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, date: e.target.value })
+                }
               />
               <Span>Date</Span>
             </FormGroup>
@@ -122,7 +95,9 @@ const Form = ({
                 minLength={6}
                 maxLength={6}
                 value={pinCode}
-                onChange={(e) => setPinCode(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, pinCode: e.target.value })
+                }
               />
             </FormGroup>
           </FormWrapper>
@@ -136,7 +111,9 @@ const Form = ({
                 name="email"
                 inputMode="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
               />
               <Span>example@example.com</Span>
             </FormGroup>
@@ -149,7 +126,9 @@ const Form = ({
                 minLength={10}
                 maxLength={10}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
               />
               <Span>Please enter a valid phone number</Span>
             </FormGroup>
@@ -163,7 +142,9 @@ const Form = ({
                 id="file"
                 name="file"
                 value={file}
-                onChange={(e) => setFile(e.target.value)}
+                onChange={(e) =>
+                  setFormData({ ...formData, file: e.target.value })
+                }
               />
             </FormGroup>
           </FormWrapper>

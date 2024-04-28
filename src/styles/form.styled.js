@@ -107,3 +107,31 @@ export const Button = styled.button`
     font-size: 1rem;
   }
 `;
+
+export const JsonData = styled.pre`
+  color: blue;
+  text-align: left;
+  font-size: 1rem;
+  display: none;
+ `;
+
+export const DataDisplay = styled.div`
+  background-color: lime;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  @media (max-width: 768px) {
+    top: 16%;
+    width: 250px;
+    overflow-x: scroll;
+  }
+
+  &:hover ${JsonData}, &:focus ${JsonData} {
+    display: block;
+  }
+`;
