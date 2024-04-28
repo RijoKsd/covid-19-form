@@ -1,7 +1,9 @@
-import Form from "./pages/form/Form";
+import FormState from "./state/FormState";
+
+ 
 
 const App = () => {
-  return <Form />;
+  return  <FormState />;
 };
 
 export default App;
