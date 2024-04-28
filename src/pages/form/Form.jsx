@@ -15,8 +15,7 @@ import {
 const Form = ({ dispatch, state }) => {
   const { firstName, lastName, date, pinCode, email, phone, file } = state;
 
-  console.log(firstName, "firstName");
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
@@ -27,7 +26,7 @@ const Form = ({ dispatch, state }) => {
         <JsonData>
           {JSON.stringify(
             {
-              state
+              state,
             },
             null,
             2
@@ -47,9 +46,9 @@ const Form = ({ dispatch, state }) => {
                 name="firstName"
                 placeholder="First name"
                 value={firstName}
-                onChange={(e) => {
-                  dispatch({ type: "firstName", payload: e.target.value });
-                }}
+                // onChange={(e) => {
+                //   dispatch({ type: "firstName", payload: e.target.value });
+                // }}
 
                 // onChange={(e) =>
                 //   setFormData({ ...formData, firstName: e.target.value })
@@ -59,6 +58,16 @@ const Form = ({ dispatch, state }) => {
                 // onInvalid={(e) => {
                 //   e.target.setCustomValidity("Please enter a valid name");
                 // }}
+
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
+                }}
               />
               <Span>First Name</Span>
             </FormGroup>
@@ -72,9 +81,19 @@ const Form = ({ dispatch, state }) => {
                 //   setFormData({ ...formData, lastName: e.target.value })
                 // }
                 // onChange={handleInputChange}
-                onChange = { (e) =>{
-                  dispatch({ type: "lastName", payload: e.target.value });
-                
+                // onChange = { (e) =>{
+                //   dispatch({ type: "lastName", payload: e.target.value });
+
+                // }}
+
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
                 }}
               />
               <Span>Last Name</Span>
@@ -93,9 +112,18 @@ const Form = ({ dispatch, state }) => {
                 // }
                 // onChange={handleInputChange}
 
-                onChange = { (e) =>{
-                  dispatch({ type: "date", payload: e.target.value });
-                
+                // onChange = { (e) =>{
+                //   dispatch({ type: "date", payload: e.target.value });
+
+                // }}
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
                 }}
               />
               <Span>Date</Span>
@@ -114,9 +142,18 @@ const Form = ({ dispatch, state }) => {
                 //   setFormData({ ...formData, pinCode: e.target.value })
                 // }
                 // onChange={handleInputChange}
-                onChange = { (e) =>{
-                  dispatch({ type: "pinCode", payload: e.target.value });
-                
+                // onChange = { (e) =>{
+                //   dispatch({ type: "pinCode", payload: e.target.value });
+
+                // }}
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
                 }}
               />
             </FormGroup>
@@ -135,9 +172,18 @@ const Form = ({ dispatch, state }) => {
                 //   setFormData({ ...formData, email: e.target.value })
                 // }
                 // onChange={handleInputChange}
-                onChange = { (e) =>{
-                  dispatch({ type: "email", payload: e.target.value });
-                
+                // onChange = { (e) =>{
+                //   dispatch({ type: "email", payload: e.target.value });
+
+                // }}
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
                 }}
               />
               <Span>example@example.com</Span>
@@ -155,9 +201,18 @@ const Form = ({ dispatch, state }) => {
                 //   setFormData({ ...formData, phone: e.target.value })
                 // }
                 // onChange={handleInputChange}
-                onChange = { (e) =>{
-                  dispatch({ type: "phone", payload: e.target.value });
-                
+                // onChange = { (e) =>{
+                //   dispatch({ type: "phone", payload: e.target.value });
+
+                // }}
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
                 }}
               />
               <Span>Please enter a valid phone number</Span>
@@ -176,9 +231,18 @@ const Form = ({ dispatch, state }) => {
                 //   setFormData({ ...formData, file: e.target.value })
                 // }
                 // onChange={handleInputChange}
-                onChange = { (e) =>{
-                  dispatch({ type: "file", payload: e.target.value });
-                
+                // onChange = { (e) =>{
+                //   dispatch({ type: "file", payload: e.target.value });
+
+                // }}
+                onChange={(e) => {
+                  dispatch({
+                    type: "textInput",
+                    payload: {
+                      key: e.target.name,
+                      value: e.target.value,
+                    },
+                  });
                 }}
               />
             </FormGroup>
