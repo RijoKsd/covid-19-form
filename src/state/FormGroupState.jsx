@@ -12,7 +12,20 @@ const FormGroupState = () => {
     file: "",
   });
 
-  return <Form formData={formData} setFormData={setFormData} />;
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <Form
+      formData={formData}
+      setFormData={setFormData}
+      handleInputChange={handleInputChange}
+    />
+  );
 };
 
 export default FormGroupState;

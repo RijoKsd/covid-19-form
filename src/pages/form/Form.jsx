@@ -12,7 +12,7 @@ import {
   Wrapper,
 } from "../../styles/form.styled";
 
-const Form = ({ formData, setFormData }) => {
+const Form = ({ formData, setFormData, handleInputChange }) => {
   const { firstName, lastName, date, pinCode, email, phone, file } = formData;
 
   const handleSubmit = (e) => {
@@ -20,8 +20,7 @@ const Form = ({ formData, setFormData }) => {
     console.log(formData);
   };
 
-  console.log(formData);
-  return (
+   return (
     <>
       <DataDisplay>
         <h4>Form Data from state</h4>
@@ -46,12 +45,14 @@ const Form = ({ formData, setFormData }) => {
               <Input
                 type="text"
                 id="first-name"
-                name="first-name"
+                name="firstName"
                 placeholder="First name"
                 value={firstName}
-                onChange={(e) =>
-                  setFormData({ ...formData, firstName: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, firstName: e.target.value })
+                // }
+
+                onChange={handleInputChange}
                 onInvalid={(e) => {
                   e.target.setCustomValidity("Please enter a valid name");
                 }}
@@ -61,12 +62,13 @@ const Form = ({ formData, setFormData }) => {
             <FormGroup>
               <Input
                 type="text"
-                name="last-name"
+                name="lastName"
                 placeholder="Last name"
                 value={lastName}
-                onChange={(e) =>
-                  setFormData({ ...formData, lastName: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, lastName: e.target.value })
+                // }
+                onChange={handleInputChange}
               />
               <Span>Last Name</Span>
             </FormGroup>
@@ -79,9 +81,10 @@ const Form = ({ formData, setFormData }) => {
                 id="date"
                 name="date"
                 value={date}
-                onChange={(e) =>
-                  setFormData({ ...formData, date: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, date: e.target.value })
+                // }
+                onChange={handleInputChange}
               />
               <Span>Date</Span>
             </FormGroup>
@@ -90,14 +93,15 @@ const Form = ({ formData, setFormData }) => {
               <Input
                 type="text"
                 id="zip-code"
-                name="zip-code"
+                name="pinCode"
                 inputMode="numeric"
                 minLength={6}
                 maxLength={6}
                 value={pinCode}
-                onChange={(e) =>
-                  setFormData({ ...formData, pinCode: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, pinCode: e.target.value })
+                // }
+                onChange={handleInputChange}
               />
             </FormGroup>
           </FormWrapper>
@@ -111,9 +115,10 @@ const Form = ({ formData, setFormData }) => {
                 name="email"
                 inputMode="email"
                 value={email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, email: e.target.value })
+                // }
+                onChange={handleInputChange}
               />
               <Span>example@example.com</Span>
             </FormGroup>
@@ -126,9 +131,10 @@ const Form = ({ formData, setFormData }) => {
                 minLength={10}
                 maxLength={10}
                 value={phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, phone: e.target.value })
+                // }
+                onChange={handleInputChange}
               />
               <Span>Please enter a valid phone number</Span>
             </FormGroup>
@@ -142,9 +148,10 @@ const Form = ({ formData, setFormData }) => {
                 id="file"
                 name="file"
                 value={file}
-                onChange={(e) =>
-                  setFormData({ ...formData, file: e.target.value })
-                }
+                // onChange={(e) =>
+                //   setFormData({ ...formData, file: e.target.value })
+                // }
+                onChange={handleInputChange}
               />
             </FormGroup>
           </FormWrapper>
